@@ -7,7 +7,7 @@ with sales_margin as (
 
 orders_agg as (
     select
-        orders_id,
+        cast(orders_id as string) as orders_id,
         min(date_date) as date_date,  -- Aynı sipariş için birden çok tarih varsa en erkenini alıyoruz
         sum(revenue) as revenue,
         sum(quantity) as quantity,
