@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: finance_days
+    description: "Mart model providing daily operational and financial performance metrics for the Finance team."
+    columns:
+      - name: date_date
+        description: "The date when the transactions occurred."
+      - name: total_transactions
+        description: "The total number of orders (transactions) for each day."
+      - name: total_revenue
+        description: "The total daily revenue generated from all orders."
+      - name: average_basket
+        description: "The average basket value per order for each day."
+      - name: total_operational_margin
+        description: "The total operational margin per day (includes shipping and logistics effects)."
+      - name: total_purchase_cost
+        description: "The total daily purchase cost of all products sold."
+      - name: total_shipping_fee
+        description: "The total amount customers paid for shipping each day."
+      - name: total_log_cost
+        description: "The total logistics cost incurred by the company each day."
+      - name: total_quantity
+        description: "The total number of product units sold each day."
