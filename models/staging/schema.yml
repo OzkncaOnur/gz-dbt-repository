@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: gz_raw_data        # Kaynak adı (dbt modellerinde 'source' ile buna referans verilecektir)
+    schema: gz_raw_data      # Veri kümesi (dataset/schema adı)
+    description: "Raw GZ veri kümesi - satış, ürün ve gönderim tablolarını içerir"
+    tables:
+      - name: raw_gz_sales
+        description: "Ham satış verileri"
+      - name: raw_gz_product
+        description: "Ham ürün bilgileri"
+      - name: raw_gz_ship
+        description: "Ham gönderim bilgileri"
