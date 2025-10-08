@@ -39,6 +39,7 @@ calculated as (
 select
     orders_id,
     product_id,
+    date_date,
     quantity,
     revenue,
     purchase_price,

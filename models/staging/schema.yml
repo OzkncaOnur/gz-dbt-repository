@@ -18,10 +18,11 @@ sources:
             description: "Revenue of the sale"
           - name: quantity
             description: "Quantity of the sales"
-        freshness:
-          warn_after: {count: 90, period: day}
-          error_after: {count: 120, period: day}
-        loaded_at_field: date_date
+        config:
+          freshness:
+            warn_after: {count: 90, period: day}
+            error_after: {count: 120, period: day}
+          loaded_at_field: date_date
       - name: raw_gz_product
         description: "Ham ürün bilgileri"
         columns:
