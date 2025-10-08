@@ -25,7 +25,7 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 
-# Configuring models
+# Configuring models hhhhh
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
 # In dbt, the default materialization for a model is a view. This means, when you run 
