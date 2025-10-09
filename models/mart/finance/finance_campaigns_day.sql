@@ -1,4 +1,3 @@
-
 -- Günlük finansal ve reklam performansını birleştirir.
 -- Bağlantılar:
 --   - int_campaigns_day (kampanya verileri)
@@ -23,14 +22,14 @@ finance as (
         cast(total_purchase_cost as float64) as purchase_cost,
         cast(total_shipping_fee as float64) as shipping_fee,
         cast(total_log_cost as float64) as log_cost,
+        cast(total_ship_cost as float64) as shipping_cost,
         cast(total_quantity as float64) as quantity,
-        cast(total_operational_margin as float64) as margin,
-        null as ship_cost
+        cast(total_operational_margin as float64) as margin
     from {{ ref('finance_days') }}
 )
 
 select
-    f.date_date as date,
+    f.date_date as date_date,
     round(f.operational_margin - c.ads_cost, 2) as ads_margin,
     f.average_basket,
     round(f.operational_margin, 2) as operational_margin,
@@ -43,8 +42,8 @@ select
     round(f.margin, 2) as margin,
     round(f.shipping_fee, 2) as shipping_fee,
     round(f.log_cost, 2) as log_cost,
-    f.ship_cost
+    round(f.shipping_cost, 2) as shipping_cost
 from finance f
 left join campaigns c
     on f.date_date = c.date_date
-order by date
+order by date_date
