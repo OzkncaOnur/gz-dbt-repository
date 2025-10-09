@@ -1,0 +1,49 @@
+version: 2
+
+sources:
+  - name: gz_raw_data        # Kaynak adı (dbt modellerinde 'source' ile buna referans verilecektir)
+    schema: gz_raw_data      # Veri kümesi (dataset/schema adı)
+    description: "Raw GZ veri kümesi - satış, ürün ve gönderim tablolarını içerir"
+    tables:
+      - name: raw_gz_sales
+        description: "Ham satış verileri"
+        columns:
+          - name: date_date
+            description: "Date of the sale"
+          - name: orders_id
+            description: "Unique identifier for each order"
+          - name: pdt_id
+            description: "Unique identifier for each product"
+          - name: revenue
+            description: "Revenue of the sale"
+          - name: quantity
+            description: "Quantity of the sales"
+        config:
+          freshness:
+            warn_after: {count: 90, period: day}
+            error_after: {count: 120, period: day}
+          loaded_at_field: date_date
+      - name: raw_gz_product
+        description: "Ham ürün bilgileri"
+        columns:
+          - name: products_id
+            description: "Unique identifier for each product"
+            tests:
+              - not_null
+              - unique
+          - name: purchSE_PRICE
+            description: "Purchasing price of the product"
+      - name: raw_gz_ship
+        description: "Ham gönderim bilgileri"
+        columns:
+          - name: orders_id
+            description: "Unique shipment identifier"
+            tests:
+              - not_null
+              - unique
+          - name: shipping_fee
+            description: "Shipping Fee"
+          - name: log_cost
+            description: "Log cost"
+          - name: ship_cost
+            description: "Shipment cost"
