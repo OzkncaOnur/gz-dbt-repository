@@ -1,4 +1,3 @@
-{{ config(materialized='view') }}
 
 with adwords as (
     select date_date, paid_source, campaign_id, campaign_name, ads_cost, impression, click
