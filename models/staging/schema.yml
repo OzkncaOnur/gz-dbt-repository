@@ -1,9 +1,9 @@
 version: 2
 
 sources:
-  - name: gz_raw_data        # Kaynak adı (dbt modellerinde 'source' ile buna referans verilecektir)
-    schema: gz_raw_data      # Veri kümesi (dataset/schema adı)
-    description: "Raw GZ veri kümesi - satış, ürün ve gönderim tablolarını içerir"
+  - name: gz_raw_data
+    schema: gz_raw_data
+    description: "Raw GZ veri kümesi - satış, ürün, gönderim ve reklam kampanya tablolarını içerir"
     tables:
       - name: raw_gz_sales
         description: "Ham satış verileri"
@@ -23,6 +23,7 @@ sources:
             warn_after: {count: 90, period: day}
             error_after: {count: 120, period: day}
           loaded_at_field: date_date
+
       - name: raw_gz_product
         description: "Ham ürün bilgileri"
         columns:
@@ -33,6 +34,7 @@ sources:
               - unique
           - name: purchSE_PRICE
             description: "Purchasing price of the product"
+
       - name: raw_gz_ship
         description: "Ham gönderim bilgileri"
         columns:
@@ -47,3 +49,123 @@ sources:
             description: "Log cost"
           - name: ship_cost
             description: "Shipment cost"
+
+      - name: raw_gz_adwords
+        description: "Google Ads raw campaign performance data"
+        columns:
+          - name: date_date
+            description: "Date of the campaign data record"
+            tests:
+              - not_null
+          - name: paid_source
+            description: "Marketing source (e.g., 'google_ads')"
+            tests:
+              - not_null
+          - name: campaign_key
+            description: "Unique identifier of the campaign"
+            tests:
+              - not_null
+          - name: camPGN_name
+            description: "Name of the campaign"
+          - name: ads_cost
+            description: "Total advertising cost (in local currency)"
+            tests:
+              - not_null
+          - name: impression
+            description: "Number of times the ad was displayed (impressions)"
+            tests:
+              - not_null
+          - name: click
+            description: "Number of times the ad was clicked"
+            tests:
+              - not_null
+
+      - name: raw_gz_bing
+        description: "Microsoft Bing Ads raw campaign performance data"
+        columns:
+          - name: date_date
+            description: "Date of the campaign data record"
+            tests:
+              - not_null
+          - name: paid_source
+            description: "Marketing source (e.g., 'bing_ads')"
+            tests:
+              - not_null
+          - name: campaign_key
+            description: "Unique identifier of the campaign"
+            tests:
+              - not_null
+          - name: camPGN_name
+            description: "Name of the campaign"
+          - name: ads_cost
+            description: "Total advertising cost (in local currency)"
+            tests:
+              - not_null
+          - name: impression
+            description: "Number of times the ad was displayed (impressions)"
+            tests:
+              - not_null
+          - name: click
+            description: "Number of times the ad was clicked"
+            tests:
+              - not_null
+
+      - name: raw_gz_criteo
+        description: "Criteo Ads raw campaign performance data"
+        columns:
+          - name: date_date
+            description: "Date of the campaign data record"
+            tests:
+              - not_null
+          - name: paid_source
+            description: "Marketing source (e.g., 'criteo')"
+            tests:
+              - not_null
+          - name: campaign_key
+            description: "Unique identifier of the campaign"
+            tests:
+              - not_null
+          - name: camPGN_name
+            description: "Name of the campaign"
+          - name: ads_cost
+            description: "Total advertising cost (in local currency)"
+            tests:
+              - not_null
+          - name: impression
+            description: "Number of times the ad was displayed (impressions)"
+            tests:
+              - not_null
+          - name: click
+            description: "Number of times the ad was clicked"
+            tests:
+              - not_null
+
+      - name: raw_gz_facebook
+        description: "Meta (Facebook & Instagram) Ads raw campaign performance data"
+        columns:
+          - name: date_date
+            description: "Date of the campaign data record"
+            tests:
+              - not_null
+          - name: paid_source
+            description: "Marketing source (e.g., 'facebook_ads')"
+            tests:
+              - not_null
+          - name: campaign_key
+            description: "Unique identifier of the campaign"
+            tests:
+              - not_null
+          - name: camPGN_name
+            description: "Name of the campaign"
+          - name: ads_cost
+            description: "Total advertising cost (in local currency)"
+            tests:
+              - not_null
+          - name: impression
+            description: "Number of times the ad was displayed (impressions)"
+            tests:
+              - not_null
+          - name: click
+            description: "Number of times the ad was clicked"
+            tests:
+              - not_null

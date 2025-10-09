@@ -22,3 +22,74 @@ models:
         description: "The total logistics cost incurred by the company each day."
       - name: total_quantity
         description: "The total number of product units sold each day."
+
+  - name: finance_campaigns_day
+    description: "Günlük finansal ve reklam performansını birleştirir."
+    columns:
+      - name: date_date
+        description: "Tarih bilgisi (gün bazında)."
+        tests:
+          - not_null
+          - unique
+      - name: ads_margin
+        description: "Reklam maliyeti çıkarıldıktan sonra operasyonel marj."
+      - name: average_basket
+        description: "Ortalama sepet tutarı."
+      - name: operational_margin
+        description: "Operasyonel marj."
+      - name: ads_cost
+        description: "Günlük toplam reklam maliyeti."
+      - name: ads_impression
+        description: "Reklam gösterim sayısı."
+      - name: ads_clicks
+        description: "Reklam tıklama sayısı."
+      - name: quantity
+        description: "Toplam satın alınan ürün miktarı."
+      - name: revenue
+        description: "Toplam gelir."
+      - name: purchase_cost
+        description: "Satın alma maliyeti."
+      - name: margin
+        description: "Toplam marj."
+      - name: shipping_fee
+        description: "Kargo ücretleri."
+      - name: log_cost
+        description: "Lojistik maliyet."
+      - name: shipping_cost
+        description: "Kargo maliyeti."
+
+  - name: finance_campaigns_monthly
+    description: "Aylık bazda finansal ve reklam performansını özetler."
+    columns:
+      - name: datemonth
+        description: "Yıl ve ay bilgisi (YYYY-MM formatında)."
+        tests:
+          - not_null
+          - unique
+      - name: ads_margin
+        description: "Aylık reklam marjı toplamı."
+      - name: average_basket
+        description: "Aylık ortalama sepet tutarı."
+      - name: operational_margin
+        description: "Aylık operasyonel marj toplamı."
+      - name: ads_cost
+        description: "Aylık toplam reklam maliyeti."
+      - name: ads_impression
+        description: "Aylık reklam gösterim sayısı."
+      - name: ads_clicks
+        description: "Aylık reklam tıklama sayısı."
+      - name: quantity
+        description: "Aylık toplam satın alınan ürün miktarı."
+      - name: revenue
+        description: "Aylık toplam gelir."
+      - name: purchase_cost
+        description: "Aylık satın alma maliyeti toplamı."
+      - name: margin
+        description: "Aylık toplam marj."
+      - name: shipping_fee
+        description: "Aylık kargo ücretleri toplamı."
+      - name: log_cost
+        description: "Aylık lojistik maliyet toplamı."
+      - name: ship_cost
+        description: "Aylık kargo maliyeti toplamı."
+
