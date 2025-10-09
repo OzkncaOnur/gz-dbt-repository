@@ -58,7 +58,6 @@ daily_agg as (
     group by date_date
 )
 
-{{ config(materialized='table') }}
 select *
 from daily_agg
 order by date_date
