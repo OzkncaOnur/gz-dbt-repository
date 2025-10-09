@@ -22,3 +22,26 @@ models:
         description: "The total logistics cost incurred by the company each day."
       - name: total_quantity
         description: "The total number of product units sold each day."
+
+  - name: finance_campaigns_day
+    description: "Günlük finansal ve kampanya performans verilerini birleştirir. ads_margin = operational_margin - ads_cost."
+    columns:
+      - name: date
+        description: "Veri tarihi."
+        tests: [not_null, unique]
+      - name: ads_margin
+        description: "Operasyonel marj ile reklam maliyeti arasındaki fark."
+      - name: ads_cost
+        description: "Toplam günlük reklam harcaması."
+      - name: operational_margin
+        description: "Operasyonel marj toplamı."
+
+  - name: finance_campaigns_month
+    description: "Aylık bazda finansal ve reklam performansını özetleyen model."
+    columns:
+      - name: datemonth
+        description: "YYYY-MM formatında ay bilgisi."
+        tests: [not_null, unique]
+      - name: ads_margin
+        description: "Aylık toplam reklam marjı."
+
