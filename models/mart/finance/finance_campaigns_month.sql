@@ -5,7 +5,7 @@
 
 with monthly as (
     select
-        format_date('%Y-%m', date) as datemonth,
+        format_date('%Y-%m', date_date) as datemonth,
         round(sum(ads_margin), 2) as ads_margin,
         -- convert average_basket from string to numeric before averaging
         round(avg(cast(average_basket as float64)), 2) as average_basket,
@@ -19,7 +19,7 @@ with monthly as (
         round(sum(margin), 2) as margin,
         round(sum(shipping_fee), 2) as shipping_fee,
         round(sum(log_cost), 2) as log_cost,
-        round(sum(ship_cost), 2) as ship_cost
+        round(sum(shipping_cost), 2) as ship_cost
     from {{ ref('finance_campaigns_day') }}
     group by datemonth
 )

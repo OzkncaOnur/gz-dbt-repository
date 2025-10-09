@@ -69,10 +69,16 @@ sources:
             description: "Name of the campaign"
           - name: ads_cost
             description: "Total advertising cost (in local currency)"
+            tests:
+              - not_null
           - name: impression
             description: "Number of times the ad was displayed (impressions)"
+            tests:
+              - not_null
           - name: click
             description: "Number of times the ad was clicked"
+            tests:
+              - not_null
 
       - name: raw_gz_bing
         description: "Microsoft Bing Ads raw campaign performance data"
@@ -93,10 +99,16 @@ sources:
             description: "Name of the campaign"
           - name: ads_cost
             description: "Total advertising cost (in local currency)"
+            tests:
+              - not_null
           - name: impression
             description: "Number of times the ad was displayed (impressions)"
+            tests:
+              - not_null
           - name: click
             description: "Number of times the ad was clicked"
+            tests:
+              - not_null
 
       - name: raw_gz_criteo
         description: "Criteo Ads raw campaign performance data"
@@ -117,10 +129,16 @@ sources:
             description: "Name of the campaign"
           - name: ads_cost
             description: "Total advertising cost (in local currency)"
+            tests:
+              - not_null
           - name: impression
             description: "Number of times the ad was displayed (impressions)"
+            tests:
+              - not_null
           - name: click
             description: "Number of times the ad was clicked"
+            tests:
+              - not_null
 
       - name: raw_gz_facebook
         description: "Meta (Facebook & Instagram) Ads raw campaign performance data"
@@ -141,7 +159,13 @@ sources:
             description: "Name of the campaign"
           - name: ads_cost
             description: "Total advertising cost (in local currency)"
+            tests:
+              - not_null
           - name: impression
             description: "Number of times the ad was displayed (impressions)"
+            tests:
+              - not_null
           - name: click
             description: "Number of times the ad was clicked"
+            tests:
+              - not_null

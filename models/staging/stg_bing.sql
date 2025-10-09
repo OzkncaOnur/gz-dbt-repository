@@ -11,5 +11,5 @@ select
 from {{ source('gz_raw_data', 'raw_gz_bing') }}
 
 
---dbt run-operation codegen.generate_base_model --args '{"source_name": "raw_gz_bing", "table_name": "raw_gz_bing"}'
+--dbt run-operation codegen.generate_base_model --args '{"source_name": "raw_gz_bing", "table_name": "raw_gz_bing"} > staging'
 --dbt run-operation codegen.generate_base_models

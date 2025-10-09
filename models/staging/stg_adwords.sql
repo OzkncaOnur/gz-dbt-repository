@@ -1,6 +1,6 @@
 
 select
-    cast(date_date as date) as date_date,                     -- Kampanya verisinin kayıt tarihi
+    cast(date_date as Date) as date_date,                     -- Kampanya verisinin kayıt tarihi
     cast(paid_source as STRING) as paid_source,              -- Pazarlama kanalı (örneğin 'google_ads')
     cast(campaign_key as STRING) as campaign_id,              -- Kampanya kimliği
     cast(camPGN_name as STRING) as campaign_name,            -- Kampanya adı (camPGN_name'den değiştirildi)
